@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Star Wars</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Кого или что будем искать?</h2>
+      <div class="search">
+        <select id="select">
+          <option value="" id="selectDefault">
+            -- Выберите кого или что искать --
+          </option>
+          <option value="people">Людей</option>
+          <option value="planets">Планеты</option>
+          <option value="films">Фильмы</option>
+        </select>
+        <input type="number" class="input" />
+        <button class="button">Искать!</button>
+      </div>
+      <div class="result"></div>
+      <div class="error"></div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
