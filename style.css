@@ -3,8 +3,10 @@
     margin: 0 auto;
 }
 
-h2 {
+h2,
+h3 {
     text-align: center;
+    font-size: 30px;
 }
 
 .search {
@@ -13,9 +15,67 @@ h2 {
     gap: 10px;
 }
 
-.result {
+.wrapper {
     margin-top: 20px;
+}
+
+.result,
+.error {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+select,
+button {
+    padding: 10px 15px;
+    background-color: #EA4C89;
+    border: 0;
+    border-radius: 17px;
+    font-size: 20px;
+    color: white;
+}
+
+input {
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.loader {
+    margin: auto;
+    --b: 8px;
+    /* border thickness */
+    --n: 10;
+    /* number of dashes*/
+    --g: 10deg;
+    /* gap  between dashes*/
+    --c: rgb(119, 119, 119);
+    /* the color */
+    width: 50px;
+    /* size */
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px;
+    /* get rid of bad outlines */
+    background: conic-gradient(#0000, var(--c)) content-box;
+    --_m:
+        /* we use +/-1deg between colors to avoid jagged edges */
+        repeating-conic-gradient(#0000 0deg,
+            #000 1deg calc(360deg/var(--n) - var(--g) - 1deg),
+            #0000 calc(360deg/var(--n) - var(--g)) calc(360deg/var(--n))),
+        radial-gradient(farthest-side, #0000 calc(98% - var(--b)), #000 calc(100% - var(--b)));
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation: load 1s infinite steps(var(--n));
+}
+
+@keyframes load {
+    to {
+        transform: rotate(1turn)
+    }
 }
